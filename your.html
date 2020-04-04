@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин Два Гуся</title>
+    <link rel="stylesheet" href="css/style4.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css\adobtivity.css">
+    <script src = "js/jquery.js"></script>
+    <script src = "js/jquery-ui.js"></script>
+    <script src = "js/xml2json.js "></script>
+    <script src = "js/jquery.tmpl.min.js."></script>
+    <script src = "js/my.js"></script>
+    <script src = "js/jquery.cookie.js"></script>
+    <meta name="viewport" content="width=320, initial-scale=1.0"/>
+</head>
+<body>
+    <div class="wrapper">
+        <!--Шапка-->
+        <header>
+            <div class="row justify-content-md-center">
+                <!--Поиск-->
+                <div class="col-md-auto" id="left-col">
+                    <div class="d-flex justify-content-end">
+                        <div class="input-group">
+                            <input class="input-box" type="text" placeholder="поиск на сайте">
+                            <button id="search-button"></button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="btn-group">
+                            <button class="wrapper_buttons"><img src="images/minilogo.png"  style="vertical-align: middle"> О компании</button>
+                            <button class="wrapper_buttons"><img src="images/delivery.png"  style="vertical-align: middle"> Доставка</button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="tagline">
+                            <!--<img src="images/slogan.png" width="280px">-->
+                            <h4 class="tagline-text stroke-text">Товары наши хороши —</h4>
+                            <h5 class="tagline-text stroke-text">развивайтесь малыши!</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--Логотип-->
+                <div class="col-md-auto">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/logo.png" alt="Логотип"></a>
+                    </div>
+                </div>
+                <!--Телефоны-->
+                <div class="col-md-auto" id="right-col">
+                    <div class="phone-number phone-number-stroke stroke-text">
+                        <span id="sky-num">8 (916) </span>
+                        <span id="skyblue-num">227 1234</span>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="button button-blue">
+                            <div class="button-container">
+                                <img id="clock" src="images/clock.png" width="20px" height="20px">
+                                <span class="text-blue">Пн-Пт: 9<sup>00</sup>-20<sup>00</sup></span>
+                                <span class="text-blue">Сб-Вс: 10<sup>00</sup>-20<sup>00</sup></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="button button-white" id="callback">
+                            <div class="button-container">
+                                <span class="text-blue">Заказать обратный звонок</span>
+                                <img id="phone" src="images/phone.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+            <div class = "m-5">
+            <div class="container">
+              <div class="category-header">
+                <a href="#">Главная  </a>
+                <h6 class="mt-0 category-title">>></h6> 
+                <a href="#">Товары для детей  </a> 
+                <h6 class="mt-0 category-title">>></h6>
+                <a href="#">Коляски</a>
+            </div>
+            <div class = "m-3"></div>
+              <div class="container">
+                <div id = 'content'>
+
+                </div>           
+              </div>
+          </div>
+        </div>
+        
+    
+
+    <!--Подвал-->
+    <footer>
+        <div class="row justify-content-md-center align-items-center">
+            <div class="col-md-auto" id="logo-col">
+                <div class="logo">
+                    <img src="images/logo_2.png">
+                </div>
+            </div>
+            <div class="col-md-auto">
+                <!--<img src="images/phone_num_clothing.png" width="220px">-->
+                <div class="phone-number">
+                    <span id="blue-num">8 (916) </span><span id="skyblue-num">227 1234</span>
+                </div>
+            </div>
+            <div class="col-md-auto">
+                <ul class="social-icons">
+                    <a href="#"><li class="social-icon" id="twitter"></li></a>
+                    <a href="#"><li class="social-icon" id="vk"></li></a>
+                    <a href="#"><li class="social-icon" id="fb"></li></a>
+                    <a href="#"><li class="social-icon" id="pen"></li></a>
+                    <a href="#"><li class="social-icon" id="rss"></li></a>
+                    <a href="#"><li class="social-icon" id="mail"></li></a>
+                    <a href="#"><li class="social-icon" id="ok"></li></a>
+                </ul>
+            </div>
+            <div class="col-2">
+                <img src="images/gusi.png" id="logo-footer">
+            </div>
+        </div>
+    </footer>
+</body>
+<script id="oneProdTmpl" type="text/x-jquery-tmpl">
+    <h3 class=" category-title">${title}</h3>
+    <div class = "m-5"></div>
+    <div class="row no-gutters">
+        <div class="col-12 col-sm-6 col-md-4">
+            <img src="img/${image} " width="300" height="400" alt="Фото товара">
+        </div>
+        <div class="col-6 col-md-8">
+            <div class = "row">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <span class="sum"> Стоимость: </span>
+                    <div class = "row">
+                        <div class="price">${price} грн</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <img src="images/галочка.png">
+                    <span class="gr"> В наличии </span>
+                <div>
+                <br />
+                <button data-id="${id}" data-name="${title}" data-link="/cart.html" class="buy"><img src="images/длякорзины.png" style="vertical-align: middle"> В корзину</button>
+            </div>
+            </div>
+            <div class = "m-5"></div>
+            <div class = "row">
+                <div class = "m-3">
+                <div class="col-6 col-md-8">
+                <div class="sum"> Описание: </div>
+                <div>
+                    ${description}
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</script> 
+<script>
+    new MyShop('products.xml','product');
+  </script> 
+</html>

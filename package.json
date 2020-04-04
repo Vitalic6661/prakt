@@ -1,0 +1,24 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "wewe",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.12.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/dbelimenko.99/belimenko2.git"
+  },
+  "author": "Dima Belimenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/dbelimenko.99/belimenko/issues"
+  },
+  "homepage": "https://gitlab.com/dbelimenko.99/belimenko#readme"
+}

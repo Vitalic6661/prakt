@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css\bootstrap.min.css">
+  <link rel="stylesheet" href="css\bootstrap.css">
+  <link rel="stylesheet" href="css\style.css">
+  <link rel="stylesheet" href="css\adobtivity.css">
+  <script src = "js/jquery.js"></script>
+  <script src = "js/jquery-ui.js"></script>
+  <script src = "js/xml2json.js "></script>
+  <script src = "js/jquery.tmpl.min.js."></script>
+  <script src = "js/my.js"></script>
+  <script src = "js/jquery.cookie.js"></script>
+  <link rel="manifest" href="/Manifest.json">
+  <meta name="viewport" content="width=320, initial-scale=1.0"/>
+  <script>
+    if ('serviceWorker' in navigator) {
+       navigator.serviceWorker
+       .register('/sw.js')
+       .then(function() {
+           console.log('Service worker registered!');
+       });
+
+       navigator.serviceWorker.ready.then(registration => {
+            if('PushManager' in window) {
+                document.querySelector('#subscribe-for-push')
+                    .addEventListener('click', () => {
+                        askPermission()
+                    });
+            }
+        });
+   }
+
+    function askPermission() {
+        return new Promise(function(resolve, reject) {
+            const permissionResult = Notification.requestPermission(function(result) {
+            resolve(result);
+            });
+
+            if(permissionResult) {
+                permissionResult.then(resolve, reject);
+            }
+        })
+        .then(function(permissionResult) {
+            if(permissionResult !== 'granted') {
+                throw new Error('We weren\'t granted permission.');
+            }
+            else {
+                console.log('We were granted permission.');
+            }
+        });
+    }
+</script>
+</head>
+
+<body>
+  <div class="conteiner header">
+    <header>
+      <div class="row justify-content-center">
+        <div class="col-md-auto" id="left-col">
+          <div class="d-flex justify-content-end">
+            <div class="input-group">
+              <input class="input-box" placeholder="поиск на сайте">
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <div class="btn-group">
+              <div class="button "></div>
+              <button class="btn-4"><img src="images/Доставка.png" style="vertical-align: middle"> Доставка</button>
+              <button class="btn-4"><img src="images/гуси-с-кнопками.png" style="vertical-align: middle"> О компании</button>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button id="spush" class="spush">Subscribe for push notifications?</button>
+        </div>
+        <div class="d-flex justify-content-end">
+            <div id="btn-group-1" style="display:none;" class="btn-group-1">
+                <button id="bt-one" class="wrapper_buttons"> Да</button>
+                <button id="bt-two" class="wrapper_buttons"> Нет</button>
+            </div>
+        </div>
+          <div class="d-flex justify-content-end">
+            <div>
+              <h4 class="tagline-text stroke-text">Товары наши хороши —</h4>
+              <h5 class="tagline-text stroke-text">развивайтесь малыши!</h5>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-auto">
+          <div class="logo">
+            <a href="index.html"><img src="images/Лого.png" alt="Логотип"></a>
+          </div>
+        </div>
+        
+        <div class="col-md-auto" id="right-col">
+          <div class="phone-number phone-number-stroke stroke-text">
+            <span id="sky-num">8 (916) </span>
+            <span id="skyblue-num">227 1234</span>
+          </div>
+          <div class="d-flex justify-content-start">
+            <div class="bf button-blue">
+              <div class="button-container">
+                <img id="clock" src="images/часы.png" width="20px" height="20px">
+                <span class="text-blue">Пн-Пт: 90<sup>00</sup>-20<sup>00</sup></span>
+                <span class="text-blue">Сб-Вс: 10<sup>00</sup>-20<sup>00</sup></span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-start">
+            <div class="bf button-white" id="callback">
+              <div class="button-container">
+                <span class="text-blue">Заказать обратный звонок</span>
+                <img id="phone" src="images/телефон.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <br>
+    <br>
+
+    <div class="row container-fluid">
+      <div class="col-md-3 m-4 offset-sm-1">
+
+        <p class="stil"><img src="images/Каляска.png" style="vertical-align: middle">Коляски </p>
+        <p>
+        <a href="my.html#cat_id=1">Коляски для новорожденных (6-7-8 задание) </a> <br>
+        <a href="category.html">Прогулочные коляски </a> <br>
+         <a href="category.html"> Коляски трости</a> <br>
+        <a href="category.html"> Универсальные коляски</a> <br>
+         <a href="category.html"> Коляски для двойни</a> <br>
+         <a href="category.html">  Конверты</a> <br>
+         <a href="category.html"> Защита от дождя и солнца</a> <br>
+         <a href="category.html"> Сумки к коляскам</a> <br>
+        <a href="category.html"> Запчасти</a> <br>
+        </p>
+      </div>
+
+      <div class="col-md-3 m-4 offset-sm-1">
+
+        <p class="stil"><img src="images/одеждаи-обувь.png" style="vertical-align: middle">Одежда и обувь
+          для малышей </p>
+        <p>
+          Шапочки<br>
+          Шарфики<br>
+          Комбинезончики<br>
+          Курточки<br>
+          Ботиночки<br>
+          Носочки<br>
+          Пеленочки<br>
+          Распашеночки<br>
+          Чепчики<br>
+
+      </div>
+
+      <div class="col-md-2 m-4 offset-sm-1">
+        <p class="stil"><img src="images/Гигиена.png" style="vertical-align: middle">Гигиена </p>
+        <p>
+          Шапочки<br>
+          Шарфики<br>
+          Комбинезончики<br>
+          Курточки<br>
+          Ботиночки<br>
+          Носочки<br>
+          Пеленочки<br>
+          Распашеночки<br>
+          Чепчики<br>
+        </p>
+      </div>
+      <div class="col ml-2">
+        <div class=" sidebar">
+          <div class="recycle-bin">
+            <div class="rb-wrapper">
+              <span> В Вашей корзине</span>
+              <b>
+                <h6> 7 товаров</h6>
+              </b>
+              <h6>на сумму 14900 руб.</h6>
+              <button class="btn btn-primary" id="issue-btn">
+                <h6 id="issue-btn-text">оформить</h6>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="row container-fluid">
+    <div class="col-md-3 m-4 offset-sm-1">
+
+      <p class="stil"><img src="images/Мебель.png" style="vertical-align: middle">Мебель
+        и матрасы </p>
+      <p>
+        Детские кровати <br>
+        Матрасы<br>
+        Стульчики для кормления<br>
+        Манежи<br>
+        Пеленальные столы<br>
+        Шкафы<br>
+      </p>
+
+      <p class="stil "><img src="images/Автокресло.png" style="vertical-align: middle">Автокресла</p>
+      <p>
+        Группа 0,0+ (0-13кг) <br>
+        Группа 0,1 (0-18кг) <br>
+        Группа 1 (9-18кг) <br>
+        Группа 1,2 (9-25кг) <br>
+        Группа 1,2,3 (9-36кг) <br>
+        Группа 2,3 (15-36кг)<br>
+        Группа 3 (22-36кг)<br>
+        Аксесуары для автокресел<br>
+      </p>
+
+      <p class="stil "><img src="images/развитие.png" style="vertical-align: middle"> Развитие</p>
+      <p>
+        Ходунки <br>
+        Интерактивные книжки<br>
+        Обучающие компьютеры<br>
+        Прыгунки<br>
+      </p>
+
+      <p class="stil "><img src="images/Зимние.png" style="vertical-align: middle"> Зимние
+        товары</p>
+      <p>
+        Саночки, Снегокаты, Тюбинги <br>
+        Ёлочные украшения<br>
+        Ёлки<br>
+        Лыжи<br>
+        Коньки<br>
+      </p>
+      <img src="images/Реклама.png" alt="акция">
+    </div>
+
+    <div class="col-md-3 m-4 offset-sm-1">
+      <p class="stil"><img src="images/Беременных.png" style="vertical-align: middle">Одежда для
+        беременных </p>
+      <p>
+        <b>ОДЕЖДА ДЛЯ БЕРЕМЕННЫХ</b> <br>
+        Брюки, капри <br>
+        Лосины, леггенсы<br>
+        Комбинезоны<br>
+        Джинсы<br>
+        Блузы, туники<br>
+        Водолазки<br>
+        Джемперы, накидки<br>
+        Платья, сарафаны<br>
+        Костюмы<br>
+        Юбки<br>
+        Для отдыха и сна<br>
+        Верхняя одежда<br>
+
+        <b>БЕЛЬЕ ДЛЯ БЕРЕМЕННЫХ</b> <br>
+        Белье дородовое<br>
+        Бандажи дородовые<br>
+        Трусы дородовые<br>
+        Белье для кормления<br>
+        Бандажи послеродовые<br>
+        Колготки, лосины<br>
+        Купальники<br>
+
+        <b>СОПУТСТВУЮЩИЕ ТОВАРЫ</b> <br>
+        Подушки для кормления<br>
+        Слинги с кольцами<br>
+        Ремень безопасности для беременных<br>
+        Ремень безопасности для детей<br>
+        Браслет от токсикоза<br>
+        Накладной животи<br>
+
+
+
+        <p class="stil "><img src="images/Скидки.png" style="vertical-align: middle"> Товары по
+          сниженным ценам</p>
+        <p>
+          Уцененные товары <br>
+          Комиссионные товары <br>
+        </p>
+
+
+
+    </div>
+
+    <div class="col-md-2 m-4 offset-sm-1">
+
+      <p class="stil"><img src="images/игрушки.png" style="vertical-align: middle">Игрушки</p>
+      <p>
+        Игрушечки <br>
+        Мягкие игрушечки <br>
+        Игровые домики <br>
+        Конструкторы <br>
+        Электромобильчеки <br>
+
+        <p class="stil"><img src="images/активные.png" style="vertical-align: middle">Активные
+          игры</p>
+        <p>
+          велосипедики <br>
+          Самокатики<br>
+          Качельки<br>
+          Горочки<br>
+        </p>
+        <p class="stil"><img src="images/товары.png" style="vertical-align: middle">Товары для мам и малышей, <br>
+          электроника</p>
+        <p>
+          Блендеры<br>
+          Видеоняня <br>
+          Ночники <br>
+          Термометры
+          Подогреватели для бутылочек <br>
+          Увлажнители очестители <br>
+          Воздуха <br>
+          Стерилизаторы <br>
+          Молокоотсосы <br>
+          Электронные весы <br>
+          Радионяни <br>
+          Рюкзаки-кенгуру <br>
+          Бутылочки <br>
+          Соски <br>
+        </p>
+    </div>
+    <div class="col ml-2">
+      <div class="brands ">
+        <div class="b-wrapper">
+          <h5 class="stil" align="center">Список брендов</h5> <br>
+          <div class="row">
+            <div class="col-5">
+              
+              <div class="brands2">
+                <div class=" ml-4">
+                  <div class="row justify-content-center align-items-center">
+                    <div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-5">
+              <ul class="categoty-items"> 
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="brands2">
+      <div class="d-wrapper">
+          <div class="row justify-content-center align-items-center">
+              <div class="col-4">
+                  <img src="images/машина.png" width="70px">
+              </div>
+              <div class="col-6">
+                  <h6 class="stil">БЕСПЛАТНАЯ ДОСТАВКА</h6>
+                  <span class="text-blue">по всей России!</span>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="news">
+    <h5 class="category-title">Новости магазина</h5>
+    <div class="news-card">
+        <div class="date">12/09/2012</div>
+        <a href="#" class="news-card-title">Заголовок новости</a>
+        <p class="news-card-text">
+          Рыба в веб-дизайне времен- ное наполнение макета страницы
+            <a href="#" class="more">Подробнее >></a>
+        </p>
+    </div>
+    <div class="news-card">
+      <div class="date">12/09/2012</div>
+      <a href="#" class="news-card-title">Еще один заголовок новости</a>
+      <p class="news-card-text">
+        Рыба в веб-дизайне времен- ное наполнение макета страницы
+          <a href="#" class="more">Подробнее >></a>
+      </p>
+  </div>
+  <a href="#" class="news-card-title">Читать все новости >></a>
+</div>
+    
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+  <br>
+  <footer>
+    <div class="row justify-content-md-center align-items-center">
+      <div class="col-md-auto" id="logo-col">
+        <div class="logo">
+          <img src="images/два гуся.png">
+        </div>
+      </div>
+      <div class="col-md-auto">
+        <div class="phone-number">
+          <span id="blue-num">8 (916) </span><span id="skyblue-num">227 1234</span>
+        </div>
+      </div>
+      <div class="col-md-auto">
+        <ul class="social-icons">
+          <a href="#">
+            <li class="social-icon" id="twitter"></li>
+          </a>
+          <a href="#">
+            <li class="social-icon" id="vk"></li>
+          </a>
+          <a href="#">
+            <li class="social-icon" id="fb"></li>
+          </a>
+          <a href="#">
+            <li class="social-icon" id="pen"></li>
+          </a>
+          <a href="#">
+            <li class="social-icon" id="rss"></li>
+          </a>
+          <a href="#">
+            <li class="social-icon" id="mail"></li>
+          </a>
+          <a href="#">
+            <li class="social-icon" id="ok"></li>
+          </a>
+        </ul>
+      </div>
+      <div class="col-2">
+        <img src="images/Гуси.png" id="logo-footer">
+      </div>
+    </div>
+
+  </footer>
+  
+</body>
+<script>
+  fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
+  .then((response) => {
+      return response.json();
+  })
+  .then((resp) => {
+      const ListOfCapitals = document.createElement('ul');
+      ListOfCapitals.classList.add("category-items");
+      const ListOfCapitals1 = document.createElement('ul');
+      ListOfCapitals1.classList.add("category-items");
+      var a = 2;
+      resp.forEach(function(item) {
+          var ListViewItem = document.createElement('li');
+          ListViewItem.appendChild(document.createTextNode(item.capital));
+          if(a % 2 == 0){
+              ListOfCapitals.appendChild(ListViewItem);
+          }
+          else{
+              ListOfCapitals1.appendChild(ListViewItem);
+          }
+          i++;
+      });
+      document.getElementsByClassName("col-5")[0].appendChild(ListOfCapitals);
+      document.getElementsByClassName("col-5")[1].appendChild(ListOfCapitals1);
+  })
+  ;
+</script>
+<script>
+  let btn = document.querySelector('#subscribe-for-push');
+  let el = document.querySelector('#btn-group-1');
+
+  btn.addEventListener('click', () => {
+      el.style.display === 'none' ? el.style.display = 'block' : el.style.display = 'none';
+      let bt = document.querySelector('#bt-one');
+      let b = document.querySelector('#bt-two');
+
+          bt.addEventListener('click', () => {
+              Notification.requestPermission().then(function(result) {
+                  console.log(result);
+              });
+          });
+
+          b.addEventListener('click', () => {
+              Notification.requestPermission().then(function(result) {
+                  console.log(result);
+              });
+          });
+  });
+</script>
+
+</html>

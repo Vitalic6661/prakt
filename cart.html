@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ</title>
+    <link rel="stylesheet" href="css\style2.css">
+    <link rel="stylesheet" href="css/style5.css">
+    <link rel="stylesheet" href="css\bootstrap.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css\adobtivity.css">
+    <meta name="viewport" content="width=320, initial-scale=1.0"/>
+    <script src = "js/jquery.js"></script>
+    <script src = "js/jquery-ui.js"></script>
+    <script src = "js/xml2json.js "></script>
+    <script src = "js/jquery.tmpl.min.js."></script>
+    <script src = "js/my.js"></script>
+    <script src = "js/jquery.cookie.js"></script>
+    <script src="https://kit.fontawesome.com/6a89a444bb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="row justify-content-md-center">
+            <!--Поиск-->
+            <div class="col-md-auto" id="left-col">
+                <div class="d-flex justify-content-end">
+                    <div class="input-group">
+                        <input class="input-box" type="text" placeholder="поиск на сайте">
+                        <button id="search-button"></button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="btn-group">
+                        <button class="wrapper_buttons"><img src="images/minilogo.png"  style="vertical-align: middle"> О компании</button>
+                        <button class="wrapper_buttons"><img src="images/delivery.png"  style="vertical-align: middle"> Доставка</button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="tagline">
+                        <!--<img src="images/slogan.png" width="280px">-->
+                        <h4 class="tagline-text stroke-text">Товары наши хороши —</h4>
+                        <h5 class="tagline-text stroke-text">развивайтесь малыши!</h5>
+                    </div>
+                </div>
+            </div>
+            <!--Логотип-->
+            <div class="col-md-auto">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="Логотип"></a>
+                </div>
+            </div>
+            <!--Телефоны-->
+            <div class="col-md-auto" id="right-col">
+                <div class="phone-number phone-number-stroke stroke-text">
+                    <span id="sky-num">8 (916) </span>
+                    <span id="skyblue-num">227 1234</span>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="button button-blue">
+                        <div class="button-container">
+                            <img id="clock" src="images/clock.png" width="20px" height="20px">
+                            <span class="text-blue">Пн-Пт: 9<sup>00</sup>-20<sup>00</sup></span>
+                            <span class="text-blue">Сб-Вс: 10<sup>00</sup>-20<sup>00</sup></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="button button-white" id="callback">
+                        <div class="button-container">
+                            <span class="text-blue">Заказать обратный звонок</span>
+                            <img id="phone" src="images/phone.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="contents">
+        <div class="oformit">
+<div class="row justify-content-center">
+    <div class="col-sm-auto">
+        <b><p class="text">Оформление <br> заказа</p></b>
+    </div>
+</div>
+        <div class="row justify-content-center">
+            <div class="col-sm-auto">
+                <label class="name" for="name">ФИО:</label> <br>
+                <label class="name" for="number">Телефон:</label> <br>
+                <label class="name" for="email">E-mail:</label> <br>
+                <p class="vash">
+                    Ваш заказ:
+                </p>
+            </div>
+            <div class="col-sm-auto">
+                    <input class="name1" type="text" id="name" name="name"> <br>
+                    <input class="name1" type="tel" id="number" name="number"> <br>
+                <input class="name1" type="email" id="email" name="email"> <br>
+            </div>
+        </div>
+            <div id = 'content'>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class=" col-lg-5 col-sm-7">
+                <div class="col-sm-auto">
+                    <button class = "boy">Оформить заказ</button>
+                </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class=" col-lg-5 col-sm-7">
+                    <div class="col-sm-auto">
+                        <p class="registry">
+                            Регистрация обязательна для следующих действий: <br>
+                            · активация скидочного купона <br>
+                            · получение бонусных баллов за покупки <br>
+                            · оплаты заказа через интернет <br>
+                            · оформление заказа на организацию <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-sm-7 ml-4">
+                            <label><input name="registry" type="radio" value="registry"> покупка с регистрацией </label>
+                    <br>
+                            <label><input name="registry" type="radio" value="registry"> вход для зарегистрированных пользователей</label>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+<footer>
+    <div class="row justify-content-md-center align-items-center">
+        <div class="col-md-auto" id="logo-col">
+            <div class="logo">
+                <img src="images/logo_2.png">
+            </div>
+        </div>
+        <div class="col-md-auto">
+            <!--<img src="images/phone_num_clothing.png" width="220px">-->
+            <div class="phone-number">
+                <span id="blue-num">8 (916) </span><span id="skyblue-num">227 1234</span>
+            </div>
+        </div>
+        <div class="col-md-auto">
+            <ul class="social-icons">
+                <a href="#"><li class="social-icon" id="twitter"></li></a>
+                <a href="#"><li class="social-icon" id="vk"></li></a>
+                <a href="#"><li class="social-icon" id="fb"></li></a>
+                <a href="#"><li class="social-icon" id="pen"></li></a>
+                <a href="#"><li class="social-icon" id="rss"></li></a>
+                <a href="#"><li class="social-icon" id="mail"></li></a>
+                <a href="#"><li class="social-icon" id="ok"></li></a>
+            </ul>
+        </div>
+        <div class="col-2">
+            <img src="images/gusi.png" id="logo-footer">
+        </div>
+    </div>
+  </footer>
+</body>
+<script id="cartTmpl" type="text/x-jquery-tmpl">
+    {{each cart}}
+    <div class="back_zakaz">
+    <div class="row justify-content-center">
+        <div class="col-sm-2">
+            <p class="list1">
+                ${title}
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <p class="list">
+                ${qty} шт
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <b><p class="list">
+                ${price} грн
+            </p></b>
+        </div>
+        <div class="col-sm-1">
+            <p class="list">
+                <i class="fas fa-times-circle"></i>
+            </p>
+        </div>
+    </div>
+    </div>
+    {{/each}}
+  </script>  
+  <script>
+      new MyShop('products.xml','cart');
+  </script> 
+</html>
