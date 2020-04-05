@@ -1,8 +1,8 @@
 {
   "name": "shop",
   "version": "1.0.0",
-  "description": "wewe",
-  "main": "index.js",
+  "description": "",
+  "main": "sw.js",
   "dependencies": {
     "http-server": "^0.12.1",
     "jquery": "^3.4.1"
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/dbelimenko.99/belimenko2.git"
+    "url": "git+https://github.com/Vitalic6661/prakt.git"
   },
-  "author": "Dima Belimenko",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/dbelimenko.99/belimenko/issues"
+    "url": "https://github.com/Vitalic6661/prakt/issues"
   },
-  "homepage": "https://gitlab.com/dbelimenko.99/belimenko#readme"
+  "homepage": "https://github.com/Vitalic6661/prakt"
 }
